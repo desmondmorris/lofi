@@ -6,6 +6,8 @@ app = Flask(__name__)
 # Load configuration file lofi/config.py
 app.config.from_object('config')
 
+print os.environ['LOFI_CONFIG_FILE']
+
 # override variables with config file from local config file
 if 'LOFI_CONFIG_FILE' in os.environ:
     app.config.from_envvar('LOFI_CONFIG_FILE')
@@ -51,4 +53,7 @@ def search():
     }), 200
 
 if __name__ == '__main__':
-    app.run()
+    app.run(
+        host=app.config['LOFI_HOST'],
+        port=app.config['LOFI_PORT']
+    )
