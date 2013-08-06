@@ -55,5 +55,5 @@ def search():
 if __name__ == '__main__':
     app.run(
         host=app.config['LOFI_HOST'],
-        port=app.config['LOFI_PORT']
+        port=int(app.config['LOFI_PORT'])
     )
