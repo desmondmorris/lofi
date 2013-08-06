@@ -1,9 +1,15 @@
 from flask import Flask, request
-import json
+import json, os
 
 app = Flask(__name__)
+
+# Load configuration file lofi/config.py
 app.config.from_object('config')
 
+# override variables with config file from local config file
+if 'LOFI_CONFIG_FILE' in os.environ:
+    app.config.from_envvar('LOFI_CONFIG_FILE')
+    
 from models import db, Location
 db.init_app(app)
 
