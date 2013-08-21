@@ -30,7 +30,12 @@ def search():
     if 'limit' in request.args and request.args['limit'] and request.args['limit'].isdigit():
         limit = int(request.args['limit'])
 
-    locations = Location.objects(__raw__={'name':{'$regex': '^%s' % request.args['query'], '$options': 'i'}}).limit(limit)
+    query = {'name':{'$regex': '^%s' % request.args['query'], '$options': 'i'}};
+
+    if 'state' in request.args:
+        query['state'] = request.args['state']; 
+
+    locations = Location.objects(__raw__=query).limit(limit)
     results = []
     for location in locations:
         results.append(
