@@ -47,7 +47,8 @@ def search():
                 'zip': location.zip,
                 'lat': location.lat,
                 'lon': location.lon,
-                'country': location.country
+                'country': location.country,
+                'gsid': location.gsid
             }
         )
     return json.dumps({

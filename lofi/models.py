@@ -14,3 +14,4 @@ class Location(db.Document):
     lat = db.StringField(required=True)
     lon = db.StringField(required=True)
     country = db.StringField(required=True)
+    gsid = db.StringField(required=True)
