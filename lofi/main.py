@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 # Load configuration file lofi/config.py
 app.config.from_object('config')
+app.config['DEBUG'] = True
 
 print os.environ['LOFI_CONFIG_FILE']
 
