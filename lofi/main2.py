@@ -5,6 +5,6 @@ app = Flask(__name__)
 
 if __name__ == '__main__':
     app.run(
-        #host=app.config['LOFI_HOST'],
+        host=os.environ['HOST'],
         port=int(os.environ['PORT'])
     )
