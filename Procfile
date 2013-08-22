@@ -1,1 +1,1 @@
-web: python lofi/main.py
+web: python lofi/main2.py
