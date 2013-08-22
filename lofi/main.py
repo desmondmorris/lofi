@@ -66,8 +66,11 @@ def search():
         'results': results
     }), 200
 
+port = os.environ.get('PORT', 5000)
+
 if __name__ == '__main__':
     app.run(
-        #host=app.config['LOFI_HOST'],
-        port=int(os.environ['PORT'])
+        debug=True,
+        port=int(port),
+        host='0.0.0.0'
     )
