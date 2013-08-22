@@ -1,1 +1,1 @@
-web: gunicorn -b 0.0.0.0:$PORT --pythonpath lofi main.app
+web: gunicorn -b 0.0.0.0:$PORT --pythonpath lofi main.py
