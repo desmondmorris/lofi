@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Load configuration file lofi/config.py
 app.config.from_object('config')
-app.config['DEBUG'] = True
+#app.config['DEBUG'] = True
 
 # override variables with config file from local config file
 # if 'LOFI_CONFIG_FILE' in os.environ:
