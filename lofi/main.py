@@ -12,8 +12,6 @@ app.config['DEBUG'] = True
 # if 'LOFI_CONFIG_FILE' in os.environ:
 #     app.config.from_envvar('LOFI_CONFIG_FILE')
 
-
-
 app.config['MONGODB_SETTINGS'] = {
   'DB': os.environ['LOFI_DB_NAME'],
   'USERNAME': os.environ['LOFI_DB_USERNAME'],
@@ -21,8 +19,6 @@ app.config['MONGODB_SETTINGS'] = {
   'HOST': os.environ['LOFI_DB_HOST'],
   'PORT': int(os.environ['LOFI_DB_PORT'])
 }
-
-
     
 from models import db, Location
 db.init_app(app)
@@ -71,7 +67,8 @@ def search():
     }), 200
 
 if __name__ == '__main__':
-    app.run(
-        host=app.config['LOFI_HOST'],
-        port=int(app.config['LOFI_PORT'])
-    )
+    app.run()
+    # app.run(
+    #     host=app.config['LOFI_HOST'],
+    #     port=int(app.config['LOFI_PORT'])
+    # )
