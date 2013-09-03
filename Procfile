@@ -1,1 +1,1 @@
-web: gunicorn lofi/main:app
+web: gunicorn --pythonpath lofi main:app
