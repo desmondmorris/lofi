@@ -5,20 +5,20 @@ app = Flask(__name__)
 
 # Load configuration file lofi/config.py
 app.config.from_object('config')
-app.config['DEBUG'] = True
+#app.config['DEBUG'] = True
 
 # override variables with config file from local config file
-if 'LOFI_CONFIG_FILE' in os.environ:
-    app.config.from_envvar('LOFI_CONFIG_FILE')
+# if 'LOFI_CONFIG_FILE' in os.environ:
+#     app.config.from_envvar('LOFI_CONFIG_FILE')
 
-MONGODB_SETTINGS = {
-  'DB': app.config.from_envvar('LOFI_DB_NAME'),
-  'USERNAME': app.config.from_envvar('LOFI_DB_USERNAME'),
-  'PASSWORD': app.config.from_envvar('LOFI_DB_PASSWORD'),
-  'HOST': app.config.from_envvar('LOFI_DB_HOST'),
-  'PORT': int(app.config.from_envvar('LOFI_DB_PORT'))
+app.config['MONGODB_SETTINGS'] = {
+  'DB': os.environ['LOFI_DB_NAME'],
+  'USERNAME': os.environ['LOFI_DB_USERNAME'],
+  'PASSWORD': os.environ['LOFI_DB_PASSWORD'],
+  'HOST': os.environ['LOFI_DB_HOST'],
+  'PORT': int(os.environ['LOFI_DB_PORT'])
 }
-    
+  
 from models import db, Location
 db.init_app(app)
 
