@@ -1,1 +1,1 @@
-web: gunicorn lofi/main.py
+web: gunicorn lofi/main:app
